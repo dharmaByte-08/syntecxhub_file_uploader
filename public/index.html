@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>File Vault</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <header class="hero">
+        <p class="eyebrow">GridFS file API</p>
+        <h1>File Vault</h1>
+        <p class="lede">
+          Upload a file, then download or delete it. Files are stored in MongoDB with GridFS.
+        </p>
+      </header>
+
+      <section class="card" aria-labelledby="upload-title">
+        <h2 id="upload-title">Upload</h2>
+        <form id="upload-form">
+          <label class="dropzone" id="dropzone">
+            <input
+              id="file-input"
+              name="file"
+              type="file"
+              accept=".jpg,.jpeg,.png,.gif,.webp,.pdf,.txt,.csv,.json,.zip,.docx,image/jpeg,image/png,image/gif,image/webp,application/pdf,text/plain,text/csv,application/json,application/zip"
+            />
+            <span class="dropzone-title">Drop a file here or browse</span>
+            <span class="dropzone-hint" id="file-label">Images, PDF, text, CSV, JSON, ZIP, or DOCX. Max 10 MB.</span>
+          </label>
+          <button class="primary" id="upload-button" type="submit">Upload file</button>
+          <div class="progress hidden" id="progress"><span id="progress-bar"></span></div>
+        </form>
+        <p class="status" id="status" role="status"></p>
+      </section>
+
+      <section class="card" aria-labelledby="library-title">
+        <div class="section-head">
+          <h2 id="library-title">Library</h2>
+          <button class="ghost" id="refresh" type="button">Refresh</button>
+        </div>
+        <input id="search" type="search" placeholder="Search by file name" aria-label="Search files" />
+        <p class="library-meta" id="library-meta"></p>
+        <ul class="file-list" id="file-list"></ul>
+        <p class="empty" id="empty">No files yet.</p>
+      </section>
+    </main>
+    <script src="/app.js"></script>
+  </body>
+</html>
